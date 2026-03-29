@@ -32,36 +32,45 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden flex flex-col items-center justify-center text-center px-6 mb-20">
-      {/* Premium Glow Effect */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/30 dark:from-primary/15 via-transparent to-transparent"></div>
-      <motion.div
-        initial={{ opacity: 0.3, scale: 0.8 }}
-        animate={{
-          opacity: [0.3, 0.5, 0.3],
-          scale: [0.8, 1.1, 0.8],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/60 dark:bg-primary/30 blur-[100px] dark:blur-[100px] rounded-full z-0 pointer-events-none"
-      />
-      <motion.div
-        initial={{ opacity: 0.2, scale: 1 }}
-        animate={{
-          opacity: [0.2, 0.4, 0.2],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/40 dark:bg-blue-500/20 blur-[120px] dark:blur-[120px] rounded-full z-0 pointer-events-none"
-      />
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+      {/* Premium Unified Background Glow - Direct CSS for Reliability */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        {/* Top center ambient glow */}
+        <div
+          className="absolute inset-0 transform-gpu opacity-30"
+          style={{
+            background: 'radial-gradient(circle at 50% 0%, #BEF264 0%, transparent 75%)',
+          }}
+        />
+
+        {/* Main central glow behind text */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] max-w-[1400px] transform-gpu opacity-40 blur-[120px]"
+          style={{
+            background: 'radial-gradient(circle at 50% 50%, #BEF264 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Dynamic accent glow blobs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.25, 0.15],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full blur-[100px] transform-gpu"
+          style={{ background: 'radial-gradient(circle at 50% 50%, #10B981 0%, transparent 70%)' }}
+        />
+        <motion.div
+          animate={{
+            scale: [1.3, 1, 1.3],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] rounded-full blur-[120px] transform-gpu"
+          style={{ background: 'radial-gradient(circle at 50% 50%, #BEF264 0%, transparent 70%)' }}
+        />
+      </div>
       <motion.h1
         variants={containerVariants}
         initial="hidden"
@@ -81,7 +90,7 @@ export default function Hero() {
             <motion.span
               key={`l2-${index}`}
               variants={letterVariants}
-              className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 bg-fixed"
+              className="inline-block text-text-primary"
             >
               {char === " " ? "\u00A0" : char}
             </motion.span>
@@ -90,11 +99,11 @@ export default function Hero() {
       </motion.h1>
 
       <p className="relative z-10 max-w-2xl text-lg md:text-xl text-text-secondary font-sans leading-relaxed mb-10 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
-        An intelligence-first career terminal that analyzes your resume against job descriptions to identify the exact gaps holding you back. Custom-tailored applications that convert.
+        The Career Intelligence Engine for World-Class Talent. Execute your search with professional precision and data-driven confidence.
       </p>
 
       <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
-        <Link href="/signup" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-white rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
+        <Link href="/signup" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
           Start Optimizing Now
         </Link>
         <Link href="#how-it-works" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-surface border border-border text-text-primary rounded-full hover:bg-surface-hover transition-colors">
@@ -114,7 +123,7 @@ export default function Hero() {
           <div className="flex text-warning text-[10px]">
             {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
           </div>
-          <p className="text-[10px] text-text-secondary font-medium tracking-tight">Join 10,000+ job seekers using SentryAI</p>
+          <p className="text-[10px] text-text-secondary font-medium tracking-tight">Join 10,000+ job seekers using RoleJet</p>
         </div>
       </div>
 

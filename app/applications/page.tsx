@@ -25,9 +25,9 @@ export default function ApplicationTrackerPage() {
   ]);
 
   const chartData = [
-    { label: 'Applied', value: 24, color: '#5B6EF5' },
-    { label: 'Screening', value: 8, color: '#8888A0' },
-    { label: 'Interview', value: 5, color: '#C084FC' },
+    { label: 'Applied', value: 24, color: '#BEF264' },
+    { label: 'Screening', value: 8, color: '#10B981' },
+    { label: 'Interview', value: 5, color: '#FFB800' },
     { label: 'Offer', value: 2, color: '#22C55E' },
     { label: 'Rejected', value: 12, color: '#EF4444' }
   ];
@@ -44,7 +44,7 @@ export default function ApplicationTrackerPage() {
               animate={{ opacity: 1, x: 0 }}
               className="text-3xl md:text-5xl font-mono-display font-bold text-text-primary tracking-tighter"
             >
-              Control <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Center.</span>
+              Control <span className="text-text-primary">Center.</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, x: -20 }}
@@ -62,7 +62,7 @@ export default function ApplicationTrackerPage() {
             transition={{ delay: 0.2 }}
           >
             <button 
-              className="h-12 px-6 bg-primary text-white font-mono-data text-xs tracking-widest uppercase rounded-xl flex items-center gap-2 hover:bg-primary/90 transition-all active:scale-[0.98] shadow-lg shadow-primary/20"
+              className="h-12 px-6 bg-primary text-black hover:bg-primary/90 transition-all active:scale-[0.98] shadow-lg shadow-primary/20"
             >
               <Plus className="w-4 h-4" />
               New Application
@@ -86,7 +86,7 @@ export default function ApplicationTrackerPage() {
               trend="+4" 
               trendType="neutral" 
               icon={Send} 
-              color="blue-500"
+              color="emerald-500"
            />
            <StatsCard 
               label="Interviews" 
@@ -94,7 +94,7 @@ export default function ApplicationTrackerPage() {
               trend="2 Urgent" 
               trendType="positive" 
               icon={UserCheck} 
-              color="purple-500"
+              color="emerald-500"
            />
            <StatsCard 
               label="Offers Secured" 
@@ -120,7 +120,7 @@ export default function ApplicationTrackerPage() {
                     <h3 className="text-xs font-mono-data text-text-tertiary uppercase tracking-[0.2em]">Recent Strategic Applications</h3>
                     <Link 
                       href="#"
-                      className="text-[10px] font-mono-data text-primary hover:underline flex items-center gap-1 uppercase tracking-widest"
+                      className="text-[10px] font-mono-data text-text-primary hover:underline flex items-center gap-1 uppercase tracking-widest"
                     >
                        View All <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -158,14 +158,14 @@ export default function ApplicationTrackerPage() {
                           <div className="flex items-center gap-6">
                              <div className="text-right hidden sm:block">
                                 <p className={`text-[10px] font-mono-data uppercase tracking-widest ${
-                                   app.status === 'Interview' ? 'text-purple-500' : 
+                                   app.status === 'Interview' ? 'text-text-primary' : 
                                    app.status === 'Rejected' ? 'text-danger' : 
-                                   app.status === 'Offer' ? 'text-success' : 'text-primary'
+                                   app.status === 'Offer' ? 'text-success' : 'text-text-primary'
                                 }`}>{app.status}</p>
                                 <p className="text-[10px] text-text-tertiary">{app.date}</p>
                              </div>
                              <button className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/30 transition-all">
-                                <ExternalLink className="w-3.5 h-3.5 text-text-tertiary hover:text-primary" />
+                                <ExternalLink className="w-3.5 h-3.5 text-text-tertiary hover:text-text-primary" />
                              </button>
                           </div>
                        </motion.div>

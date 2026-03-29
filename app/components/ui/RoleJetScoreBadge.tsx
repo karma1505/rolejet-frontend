@@ -1,13 +1,13 @@
 import React from 'react';
 
-interface SentryScoreBadgeProps {
+interface RoleJetScoreBadgeProps {
   score: number;
   label?: string;
   description?: string;
   size?: 'sm' | 'md' | 'lg';
 }
 
-export default function SentryScoreBadge({ score, label, description, size = 'md' }: SentryScoreBadgeProps) {
+export default function RoleJetScoreBadge({ score, label, description, size = 'md' }: RoleJetScoreBadgeProps) {
   let colorClass = "text-danger";
   let bgBorderClass = "text-danger/20";
   

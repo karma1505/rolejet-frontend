@@ -34,7 +34,7 @@ export default function ResumeBuilderPage() {
     <div className="min-h-screen flex flex-col w-full bg-background overflow-x-hidden">
       <Navbar />
 
-      <main className="flex-1 flex flex-col items-center w-full px-6 py-16 lg:py-24 relative">
+      <main className="flex-1 flex flex-col items-center w-full px-6 py-16 lg:py-24 relative pt-16 md:pt-24 lg:pt-32">
         {/* Background Decorative Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl aspect-square bg-primary/10 blur-[120px] rounded-full -z-10 pointer-events-none opacity-50"></div>
 
@@ -58,7 +58,7 @@ export default function ResumeBuilderPage() {
                   <motion.span
                     key={`l2-${index}`}
                     variants={letterVariants}
-                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 bg-fixed"
+                    className="inline-block text-text-primary bg-fixed"
                   >
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
@@ -72,7 +72,7 @@ export default function ResumeBuilderPage() {
               transition={{ duration: 0.6, delay: 1.5 }}
               className="text-lg text-text-secondary font-sans leading-relaxed tracking-tight"
             >
-              Upload your master archive. Paste the JD. Sentry filters your skills <br className="hidden md:block" />
+              Upload your master archive. Paste the JD. RoleJet filters your skills <br className="hidden md:block" />
               to build the perfect conversion-first resume for this specific role.
             </motion.p>
           </div>

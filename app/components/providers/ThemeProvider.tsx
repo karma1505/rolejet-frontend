@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Check if theme is saved in localStorage
-    const savedTheme = localStorage.getItem('sentry-theme') as Theme;
+    const savedTheme = localStorage.getItem('rolejet-theme') as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
@@ -29,7 +29,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    localStorage.setItem('sentry-theme', newTheme);
+    localStorage.setItem('rolejet-theme', newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
 

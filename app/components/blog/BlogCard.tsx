@@ -30,7 +30,7 @@ export default function BlogCard({ title, excerpt, category, date, readTime, ima
           className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[0.2] group-hover:grayscale-0"
         />
         <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-background/80 backdrop-blur-md border border-border/50 rounded-full text-[10px] font-mono-data text-primary uppercase tracking-widest">
+          <span className="px-3 py-1 bg-background/80 backdrop-blur-md border border-border/50 rounded-full text-[10px] font-mono-data text-text-primary uppercase tracking-widest">
             {category}
           </span>
         </div>
@@ -48,7 +48,7 @@ export default function BlogCard({ title, excerpt, category, date, readTime, ima
           </div>
         </div>
         
-        <Link href={href} className="group-hover:text-primary transition-colors">
+        <Link href={href} className="group-hover:text-text-primary transition-colors">
           <h3 className="text-xl font-mono-display font-bold text-text-primary mb-3 leading-tight tracking-tight">
             {title}
           </h3>

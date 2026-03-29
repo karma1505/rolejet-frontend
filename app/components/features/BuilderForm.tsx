@@ -26,12 +26,12 @@ export default function BuilderForm() {
         className="w-full bg-primary/5 border border-primary/20 rounded-2xl p-6 flex items-start gap-4 relative overflow-hidden group"
       >
         <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-          <Sparkles className="w-5 h-5 text-primary" />
+          <Sparkles className="w-5 h-5 text-text-primary" />
         </div>
         <div>
-          <h4 className="font-mono-data text-xs uppercase tracking-widest text-primary mb-1">Master Resume Strategy</h4>
+          <h4 className="font-mono-data text-xs uppercase tracking-widest text-text-primary mb-1">Master Resume Strategy</h4>
           <p className="text-sm text-text-secondary leading-relaxed max-w-3xl">
-            Upload your <span className="text-text-primary font-medium">Master Resume</span> containing every project, skill, and certification you've ever earned. Sentry's AI will forensically filter and reframe only the relevant entries that align with the specific job description and your target goal.
+            Upload your <span className="text-text-primary font-medium">Master Resume</span> containing every project, skill, and certification you've ever earned. RoleJet's AI will forensically filter and reframe only the relevant entries that align with the specific job description and your target goal.
           </p>
         </div>
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -63,11 +63,11 @@ export default function BuilderForm() {
                     className="flex flex-col items-center text-center"
                   >
                     <div className="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 ring-1 ring-primary/30">
-                      <FileText className="w-10 h-10 text-primary" />
+                      <FileText className="w-10 h-10 text-text-primary" />
                     </div>
                     <p className="text-base font-semibold text-text-primary truncate max-w-[200px]">{file.name}</p>
                     <p className="text-xs text-text-secondary mt-2 tracking-wide font-mono-data">{(file.size / 1024 / 1024).toFixed(2)} MB • MASTER ARCHIVE</p>
-                    <p className="text-xs text-primary mt-8 font-medium px-4 py-2 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">Click to replace archive</p>
+                    <p className="text-xs text-text-primary mt-8 font-medium px-4 py-2 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">Click to replace archive</p>
                   </motion.div>
                 ) : (
                   <motion.div
@@ -78,9 +78,9 @@ export default function BuilderForm() {
                     className="flex flex-col items-center text-center"
                   >
                     <div className="w-16 h-16 rounded-full bg-surface/80 border border-border flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                      <UploadCloud className="w-8 h-8 text-text-tertiary group-hover:text-primary transition-colors" />
+                      <UploadCloud className="w-8 h-8 text-text-tertiary group-hover:text-text-primary transition-colors" />
                     </div>
-                    <p className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors">Upload Master Resume</p>
+                    <p className="text-sm font-medium text-text-primary group-hover:text-text-primary transition-colors">Upload Master Resume</p>
                     <p className="text-xs text-text-secondary mt-3 max-w-[180px] leading-relaxed">PDF format. This should be your most comprehensive record.</p>
                   </motion.div>
                 )}
@@ -92,7 +92,7 @@ export default function BuilderForm() {
           <div className="space-y-8 flex flex-col order-1 lg:order-2">
             <div className="flex-1 flex flex-col">
               <label className="font-mono-data text-xs uppercase tracking-widest text-text-tertiary mb-3 flex items-center gap-2">
-                <Target className="w-3 h-3 text-primary" />
+                <Target className="w-3 h-3 text-text-primary" />
                 Target Job Description
               </label>
               <textarea
@@ -123,7 +123,7 @@ export default function BuilderForm() {
           <button
             type="submit"
             disabled={!jd || !file || !goal || isAnalyzing}
-            className={`w-full h-16 rounded-xl font-mono-data text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden relative group ${isAnalyzing ? 'bg-primary/20 text-primary cursor-wait' : 'bg-primary text-white hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed'}`}
+            className={`w-full h-16 rounded-xl font-mono-data text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden relative group ${isAnalyzing ? 'bg-primary/20 text-text-primary cursor-wait' : 'bg-primary text-black hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed'}`}
           >
             {isAnalyzing ? (
               <>
@@ -141,11 +141,11 @@ export default function BuilderForm() {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none"></div>
           </button>
           <div className="flex items-center justify-center gap-6 mt-6">
-            <p className="text-[10px] text-text-tertiary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
-              <span className="w-1 h-1 rounded-full bg-success"></span> Analysis consumes 1 Sentry Credit
+            <p className="text-[10px] text-text-secondary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
+              <span className="w-1.5 h-1.5 rounded-full bg-success/50"></span> Analysis consumes 1 RoleJet Credit
             </p>
-            <p className="text-[10px] text-text-tertiary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
-              <span className="w-1 h-1 rounded-full bg-primary"></span> Approx 45s processing time
+            <p className="text-[10px] text-text-secondary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span> Approx 45s processing time
             </p>
           </div>
         </div>

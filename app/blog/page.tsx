@@ -51,7 +51,7 @@ export default function BlogPage() {
             animate={{ opacity: 1, scale: 1 }}
             className="text-4xl md:text-6xl font-mono-display font-bold text-text-primary tracking-tighter"
           >
-            Insights into the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Intelligent Career.</span>
+            Insights into the <span className="text-text-primary">Intelligent Career.</span>
           </motion.h1>
 
           <motion.p
@@ -103,7 +103,7 @@ export default function BlogPage() {
                 placeholder="eng-dir@company.com"
                 className="flex-1 h-12 bg-background border border-border rounded-xl px-4 text-xs font-mono-data focus:outline-none focus:border-primary transition-all"
               />
-              <button className="h-12 px-8 bg-primary text-white rounded-xl text-xs font-mono-data uppercase tracking-widest hover:bg-primary/90 transition-all">
+              <button className="h-12 px-8 bg-primary text-black hover:bg-primary/90 transition-all">
                 Subscribe
               </button>
             </div>

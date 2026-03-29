@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function FeatureTabs() {
   const [activeTab, setActiveTab] = useState(0);
@@ -9,14 +10,14 @@ export default function FeatureTabs() {
       title: "Extension",
       id: "extension",
       description: "Auto-fill and optimize job applications in real-time.",
-      longDesc: "Sentry Copilot lives in your browser, detecting application fields and suggesting optimized content based on the Job Description.",
-      color: "from-blue-500 to-indigo-500"
+      longDesc: "RoleJet Copilot lives in your browser, detecting application fields and suggesting optimized content based on the Job Description.",
+      color: "from-lime-400 to-emerald-500"
     },
     {
       title: "Job Tracker",
       id: "tracker",
-      description: "Manage every application in one single intelligence terminal.",
-      longDesc: "No more spreadsheets. Track every stage of your job search with automated status updates and follow-up reminders.",
+      description: "Manage every application in a single intelligence hub.",
+      longDesc: "No more spreadsheets. Track every stage of your job search with automated status updates and strategic follow-up reminders.",
       color: "from-emerald-500 to-teal-500"
     },
     {
@@ -31,27 +32,53 @@ export default function FeatureTabs() {
   return (
     <section className="w-full py-24 px-6 max-w-7xl mx-auto" id="how-it-works">
       <div className="text-center mb-16 space-y-4">
-        <h2 className="text-3xl md:text-5xl font-mono-display font-bold tracking-tight">We're here for <br /><span className="text-primary italic">every step</span> of your search.</h2>
-        <p className="text-text-secondary max-w-2xl mx-auto font-sans text-lg">
-          Forget juggling tabs and spreadsheets. SentryAI centralizes your entire career workflow into one intelligent terminal.
-        </p>
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-3xl md:text-5xl font-mono-display font-bold tracking-tight"
+        >
+          One platform. <br /><span className="text-text-primary italic">Every high-stakes</span> move.
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="text-text-secondary max-w-2xl mx-auto font-sans text-lg"
+        >
+          Replace fragmented spreadsheets and endless tabs with a sophisticated career intelligence engine. Total focus on your next destination.
+        </motion.p>
       </div>
 
-      <div className="bg-surface/50 border border-border rounded-3xl p-2 md:p-6 shadow-xl">
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-8">
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, margin: "-100px" }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="bg-surface/50 border border-border rounded-3xl p-2 md:p-6 shadow-xl"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="flex flex-wrap justify-center items-center gap-2 mb-8"
+        >
           {features.map((feature, idx) => (
             <button
               key={idx}
               onClick={() => setActiveTab(idx)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === idx
-                  ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105'
-                  : 'bg-surface hover:bg-surface-hover text-text-secondary border border-border'
+                ? 'bg-primary text-black shadow-lg shadow-primary/20 scale-105'
+                : 'bg-surface hover:bg-surface-hover text-text-secondary border border-border'
                 }`}
             >
               {feature.title}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center p-4 md:p-8 animate-in fade-in duration-500">
           <div className="space-y-6">
@@ -76,7 +103,7 @@ export default function FeatureTabs() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

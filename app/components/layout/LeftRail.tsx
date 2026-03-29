@@ -14,9 +14,9 @@ export default function LeftRail() {
       {/* Brand */}
       <div className={`h-16 flex items-center border-b border-border ${isCollapsed ? 'justify-center' : 'justify-center sm:justify-start sm:px-6'}`}>
         <div className="w-8 h-8 rounded border border-text-tertiary flex items-center justify-center shrink-0">
-          <span className="font-mono-display text-xs text-text-secondary">S</span>
+          <span className="font-mono-display text-xs text-text-secondary">R</span>
         </div>
-        {!isCollapsed && <span className="hidden sm:block ml-3 font-mono-display text-xl tracking-tight text-text-primary leading-none mt-1">Sentry</span>}
+        {!isCollapsed && <span className="hidden sm:block ml-3 font-mono-display text-xl tracking-tight text-text-primary leading-none mt-1">RoleJet</span>}
       </div>
 
       {/* Nav Links */}
@@ -54,7 +54,7 @@ function NavItem({ href, icon, label, active = false, collapsed = false }: { hre
       href={href}
       className={`flex items-center h-10 rounded transition-colors ${collapsed ? 'justify-center w-full' : 'justify-center sm:justify-start sm:px-3'
         } ${active
-          ? 'bg-surface text-primary font-medium'
+          ? 'bg-surface text-text-primary font-medium'
           : 'text-text-secondary hover:bg-surface hover:text-text-primary'
         }`}
       title={collapsed ? label : undefined}

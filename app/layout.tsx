@@ -20,7 +20,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 // layout components handled locally where needed
 export const metadata: Metadata = {
-  title: "Sentry | Apply less. Hear back more.",
+  title: "RoleJet | Apply less. Hear back more.",
   description: "An intelligence-first career and job application terminal.",
 };
 

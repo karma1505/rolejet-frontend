@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
       <Navbar />
-      <main className="flex-1 flex flex-col items-center w-full">
+      <main className="flex-1 flex flex-col items-center w-full pt-16">
         <Hero />
         <TrustSection />
         <FeatureTabs />

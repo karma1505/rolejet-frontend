@@ -4,9 +4,11 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-border: var(--border);
-  --color-primary: #5B6EF5;
+  --color-primary: #BEF264;
+  --color-brand: #BEF264;
+  --color-accent: #10B981;
   --color-success: #22C55E;
-  --color-warning: #F59E0B;
+  --color-warning: #FFB800;
   --color-danger: #EF4444;
 
   --color-text-primary: var(--text-primary);
@@ -20,22 +22,12 @@
 
 :root {
   --background: #ffffff;
-  --surface: #f8fafc;
-  --surface-hover: #f1f5f9;
-  --border: #e2e8f0;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-tertiary: #94a3b8;
-}
-
-.dark {
-  --background: #1a1a1a;
-  --surface: #212121;
-  --surface-hover: #2a2a2a;
-  --border: #2d2d2d;
-  --text-primary: #f0f0f5;
-  --text-secondary: #8888a0;
-  --text-tertiary: #44445a;
+  --surface: #fafafa;
+  --surface-hover: #f4f4f5;
+  --border: #e4e4e7;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-tertiary: #a1a1aa;
 }
 
 @layer base {
