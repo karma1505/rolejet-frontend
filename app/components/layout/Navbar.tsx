@@ -14,25 +14,25 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          <Link href="/resumebuilder" className="text-sm font-mono-data font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/resumebuilder" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
             Resume Builder
           </Link>
-          <Link href="/applications" className="text-sm font-mono-data font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/applications" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
             Job Application Tracker
           </Link>
-          <Link href="/extension" className="text-sm font-mono-data font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/extension" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
             Extension
           </Link>
-          <Link href="/blog" className="text-sm font-mono-data font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/blog" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
             Blog
           </Link>
         </div>
 
         <div className="flex items-center gap-5">
-          <Link href="/login" className="text-sm font-mono-data font-medium text-text-secondary hover:text-text-primary transition-colors group">
+          <Link href="/login" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors group">
             Sign In
           </Link>
-          <Link href="/signup" className="h-9 px-4 inline-flex items-center justify-center text-sm font-mono-data font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-colors">
+          <Link href="/signup" className="h-9 px-4 inline-flex items-center justify-center text-sm font-sans font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-colors">
             Get Started
           </Link>
         </div>

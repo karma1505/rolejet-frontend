@@ -3,6 +3,7 @@ import Footer from './components/layout/Footer';
 import Hero from './components/landing/Hero';
 import TrustSection from './components/landing/TrustSection';
 import FeatureTabs from './components/landing/FeatureTabs';
+import FAQ from './components/landing/FAQ';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <TrustSection />
         <FeatureTabs />
+        <FAQ />
       </main>
       <Footer />
     </div>

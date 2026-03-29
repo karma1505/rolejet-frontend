@@ -7,25 +7,25 @@ export default function FeatureTabs() {
 
   const features = [
     {
-      title: "Extension",
-      id: "extension",
-      description: "Auto-fill and optimize job applications in real-time.",
-      longDesc: "RoleJet Copilot lives in your browser, detecting application fields and suggesting optimized content based on the Job Description.",
-      color: "from-lime-400 to-emerald-500"
+      title: "Resume Builder",
+      id: "builder",
+      description: "Precision-Engineered Resumes. Optimized for high-signal matching.",
+      longDesc: "Our AI identifies the exact gaps in your technical profile compared to target JDs, performantly synthesizing bullets for maximum architectural impact.",
+      color: "from-amber-500 to-orange-500"
     },
     {
-      title: "Job Tracker",
+      title: "Job Application Tracker",
       id: "tracker",
-      description: "Manage every application in a single intelligence hub.",
-      longDesc: "No more spreadsheets. Track every stage of your job search with automated status updates and strategic follow-up reminders.",
+      description: "A Unified Persistence Layer for your applications.",
+      longDesc: "No more fragmented spreadsheets. Track every stage of your technical search with automated status hooks and strategic follow-up reminders.",
       color: "from-emerald-500 to-teal-500"
     },
     {
-      title: "Resume Builder",
-      id: "builder",
-      description: "Craft high-conversion resumes that bypass ATS filters.",
-      longDesc: "Our AI identifies the exact gaps in your resume compared to target JDs and helps you rewrite weak bullets for maximum impact.",
-      color: "from-amber-500 to-orange-500"
+      title: "Extension",
+      id: "extension",
+      description: "Browser-level application injection and optimization.",
+      longDesc: "RoleJet Copilot lives in your browser, performantly auto-filling fields and suggesting optimized content based on the Job Description's engineering requirements.",
+      color: "from-lime-400 to-emerald-500"
     }
   ];
 
@@ -39,7 +39,7 @@ export default function FeatureTabs() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-3xl md:text-5xl font-mono-display font-bold tracking-tight"
         >
-          One platform. <br /><span className="text-text-primary italic">Every high-stakes</span> move.
+          One platform. <br /><span className="text-text-primary">Every high-stakes</span> move.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 15 }}

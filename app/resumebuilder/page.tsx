@@ -2,6 +2,7 @@
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import BuilderForm from '../components/features/BuilderForm';
+import OnboardingModal from '../components/features/OnboardingModal';
 import { motion } from 'framer-motion';
 
 export default function ResumeBuilderPage() {
@@ -33,6 +34,7 @@ export default function ResumeBuilderPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-background overflow-x-hidden">
       <Navbar />
+      <OnboardingModal />
 
       <main className="flex-1 flex flex-col items-center w-full px-6 py-16 lg:py-24 relative pt-16 md:pt-24 lg:pt-32">
         {/* Background Decorative Glow */}
@@ -47,23 +49,11 @@ export default function ResumeBuilderPage() {
               variants={containerVariants}
               className="text-4xl md:text-6xl font-mono-display font-bold tracking-tighter text-text-primary leading-[1.2]"
             >
-              {"Targeted Resume".split("").map((char, index) => (
+              {"Targeted Resume Rewriting.".split("").map((char, index) => (
                 <motion.span key={`l1-${index}`} variants={letterVariants} className="inline-block">
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
-              <br className="hidden md:block" />
-              <span className="inline-block">
-                {"Rewriting.".split("").map((char, index) => (
-                  <motion.span
-                    key={`l2-${index}`}
-                    variants={letterVariants}
-                    className="inline-block text-text-primary bg-fixed"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </span>
             </motion.h1>
 
             <motion.p

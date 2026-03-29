@@ -18,30 +18,11 @@ export default function BuilderForm() {
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-8">
-      {/* Master Resume Concept Tutorial Overlay */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        className="w-full bg-primary/5 border border-primary/20 rounded-2xl p-6 flex items-start gap-4 relative overflow-hidden group"
-      >
-        <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-          <Sparkles className="w-5 h-5 text-text-primary" />
-        </div>
-        <div>
-          <h4 className="font-mono-data text-xs uppercase tracking-widest text-text-primary mb-1">Master Resume Strategy</h4>
-          <p className="text-sm text-text-secondary leading-relaxed max-w-3xl">
-            Upload your <span className="text-text-primary font-medium">Master Resume</span> containing every project, skill, and certification you've ever earned. RoleJet's AI will forensically filter and reframe only the relevant entries that align with the specific job description and your target goal.
-          </p>
-        </div>
-        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-      </motion.div>
-
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column: Master Resume Upload */}
           <div className="flex flex-col h-full order-2 lg:order-1">
-            <label className="font-mono-data text-xs uppercase tracking-widest text-text-tertiary mb-3 flex items-center gap-2">
+            <label className="font-mono-data text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
               <FileText className="w-3 h-3 text-success" />
               Master Resume (All Skills)
             </label>
@@ -91,7 +72,7 @@ export default function BuilderForm() {
           {/* Right Column: JD & Goal */}
           <div className="space-y-8 flex flex-col order-1 lg:order-2">
             <div className="flex-1 flex flex-col">
-              <label className="font-mono-data text-xs uppercase tracking-widest text-text-tertiary mb-3 flex items-center gap-2">
+              <label className="font-mono-data text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
                 <Target className="w-3 h-3 text-text-primary" />
                 Target Job Description
               </label>
@@ -104,7 +85,7 @@ export default function BuilderForm() {
             </div>
 
             <div className="flex flex-col">
-              <label className="font-mono-data text-xs uppercase tracking-widest text-text-tertiary mb-3 flex items-center gap-2">
+              <label className="font-mono-data text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
                 <Sparkles className="w-3 h-3 text-warning" />
                 Specify Your Target Goal
               </label>
@@ -123,12 +104,12 @@ export default function BuilderForm() {
           <button
             type="submit"
             disabled={!jd || !file || !goal || isAnalyzing}
-            className={`w-full h-16 rounded-xl font-mono-data text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden relative group ${isAnalyzing ? 'bg-primary/20 text-text-primary cursor-wait' : 'bg-primary text-black hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed'}`}
+            className={`w-full max-w-md mx-auto h-12 rounded-xl font-sans font-bold text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden relative group ${isAnalyzing ? 'bg-primary/20 text-text-primary cursor-wait' : 'bg-primary text-black hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed'}`}
           >
             {isAnalyzing ? (
               <>
-                <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-                Generating Forensic Strategy...
+                <div className="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+                Good Things Come To Those Who Wait
               </>
             ) : (
               <>
@@ -142,7 +123,7 @@ export default function BuilderForm() {
           </button>
           <div className="flex items-center justify-center gap-6 mt-6">
             <p className="text-[10px] text-text-secondary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
-              <span className="w-1.5 h-1.5 rounded-full bg-success/50"></span> Analysis consumes 1 RoleJet Credit
+              <span className="w-1.5 h-1.5 rounded-full bg-success/50"></span> Analysis consumes 1 RJ Credit
             </p>
             <p className="text-[10px] text-text-secondary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
               <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span> Approx 45s processing time

@@ -98,8 +98,8 @@ export default function Hero() {
         </span>
       </motion.h1>
 
-      <p className="relative z-10 max-w-2xl text-lg md:text-xl text-text-secondary font-sans leading-relaxed mb-10 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
-        The Career Intelligence Engine for World-Class Talent. Execute your search with professional precision and data-driven confidence.
+      <p className="relative z-10 max-w-3xl text-lg md:text-xl text-text-secondary font-sans leading-relaxed mb-10 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
+        The Career Intelligence Engine for World-Class Engineering Talent. From CS graduates to Principal Architects, execute your search with precision.
       </p>
 
       <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">

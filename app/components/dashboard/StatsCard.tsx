@@ -36,7 +36,7 @@ export default function StatsCard({ label, value, trend, trendType = 'neutral', 
       </div>
       
       <div className="space-y-1">
-        <h3 className="text-sm font-mono-data text-text-tertiary uppercase tracking-wider">{label}</h3>
+        <h3 className="text-sm font-sans font-medium text-text-tertiary uppercase tracking-wider">{label}</h3>
         <p className="text-3xl font-mono-display font-bold text-text-primary tracking-tighter">
           {value}
         </p>
