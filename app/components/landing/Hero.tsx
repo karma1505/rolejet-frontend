@@ -103,7 +103,7 @@ export default function Hero() {
       </p>
 
       <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
-        <Link href="/signup" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
+        <Link href="/resumebuilder" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
           Start Optimizing Now
         </Link>
         <Link href="#how-it-works" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-surface border border-border text-text-primary rounded-full hover:bg-surface-hover transition-colors">

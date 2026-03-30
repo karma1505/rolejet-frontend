@@ -25,6 +25,8 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "./components/providers/ThemeProvider";
+import { UserProvider } from "./components/providers/UserProvider";
+import GoogleOneTap from "./components/auth/GoogleOneTap";
 
 export default function RootLayout({
   children,
@@ -39,7 +41,10 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col font-sans bg-background text-text-primary transition-colors duration-300">
         <ThemeProvider>
-          {children}
+          <UserProvider>
+            {children}
+            <GoogleOneTap />
+          </UserProvider>
         </ThemeProvider>
       </body>
     </html>
