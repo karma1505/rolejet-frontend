@@ -57,7 +57,7 @@ export default function Navbar() {
               {/* Avatar trigger */}
               <button
                 onClick={() => setOpen(prev => !prev)}
-                className="flex items-center gap-2 rounded-full focus:outline-none group"
+                className="flex items-center gap-1.5 rounded-full focus:outline-none group"
                 aria-label="Open profile menu"
               >
                 {user.avatar_url ? (
@@ -72,6 +72,16 @@ export default function Navbar() {
                     {(user.full_name ?? user.email)[0].toUpperCase()}
                   </div>
                 )}
+                <svg
+                  className="w-4 h-4 text-text-tertiary transition-colors duration-200 group-hover:text-text-secondary"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                >
+                  {open ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+                  )}
+                </svg>
               </button>
 
               {/* Dropdown */}
@@ -104,12 +114,12 @@ export default function Navbar() {
                   <div className="px-4 py-3 border-b border-border">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono-display font-bold text-primary">RJ</span>
-                        <span className="text-xs font-sans text-text-secondary">Credits</span>
+                        <span className="text-xs font-mono-display text-text-secondary">RJ</span>
+                        <span className="text-xs font-mono-display text-text-secondary">Credits</span>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-sm font-mono-display font-bold text-text-primary">0</span>
-                        <span className="text-[10px] font-sans text-text-tertiary uppercase tracking-wider">credits</span>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs font-mono-display text-text-secondary">0</span>
+                        <span className="text-xs font-mono-display text-text-secondary">credits</span>
                       </div>
                     </div>
                     <div className="mt-2 h-1.5 rounded-full bg-surface overflow-hidden">

@@ -81,6 +81,7 @@ export default function GoogleOneTap() {
       callback: handleCredentialResponse,
       auto_select: false,
       cancel_on_tap_outside: true,
+      prompt_parent_id: "oneTapPrompt",
     });
 
     window.google.accounts.id.prompt((notification: PromptMomentNotification) => {
@@ -102,10 +103,13 @@ export default function GoogleOneTap() {
   }, [initializeOneTap]);
 
   return (
-    <Script
-      src="https://accounts.google.com/gsi/client"
-      onLoad={initializeOneTap}
-      strategy="afterInteractive"
-    />
+    <>
+      <div id="oneTapPrompt" className="fixed top-20 right-4 z-[100]" />
+      <Script
+        src="https://accounts.google.com/gsi/client"
+        onLoad={initializeOneTap}
+        strategy="afterInteractive"
+      />
+    </>
   );
 }
