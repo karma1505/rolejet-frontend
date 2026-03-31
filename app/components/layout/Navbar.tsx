@@ -3,9 +3,10 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useUser } from '../providers/UserProvider';
+import GoogleSignInButton from '../auth/GoogleSignInButton';
 
 export default function Navbar() {
-  const { user, signOut } = useUser();
+  const { user, signOut, isLoading } = useUser();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -159,6 +160,8 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+          ) : !isLoading ? (
+            <GoogleSignInButton />
           ) : null}
         </div>
 

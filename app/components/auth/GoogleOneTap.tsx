@@ -40,33 +40,13 @@ declare global {
  */
 export default function GoogleOneTap() {
   const initialized = useRef(false);
-  const { setUser } = useUser();
+  const { loginWithCredential } = useUser();
 
   const handleCredentialResponse = useCallback(
     async (response: GoogleCredentialResponse) => {
-      try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-        const res = await fetch(`${apiUrl}/auth/google`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ credential: response.credential }),
-        });
-
-        if (!res.ok) throw new Error(`Auth failed: ${res.status}`);
-
-        const data = await res.json();
-        console.log("Authenticated successfully:", data);
-
-        // Persist user to global context + localStorage
-        if (data.user) {
-          setUser(data.user);
-        }
-
-      } catch (error) {
-        console.error("Backend auth error:", error);
-      }
+      await loginWithCredential(response.credential);
     },
-    [setUser]
+    [loginWithCredential]
   );
 
   const initializeOneTap = useCallback(() => {

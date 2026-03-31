@@ -17,6 +17,7 @@ interface UserContextType {
   setUser: (user: User | null) => void;
   signOut: () => void;
   isLoading: boolean;
+  loginWithCredential: (token: string) => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -54,8 +55,30 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     setUser(null);
   }, [setUser]);
 
+  const loginWithCredential = useCallback(async (token: string) => {
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const res = await fetch(`${apiUrl}/auth/google`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ credential: token }),
+      });
+
+      if (!res.ok) throw new Error(`Auth failed: ${res.status}`);
+
+      const data = await res.json();
+      console.log("Authenticated successfully:", data);
+
+      if (data.user) {
+        setUser(data.user);
+      }
+    } catch (error) {
+      console.error("Backend auth error:", error);
+    }
+  }, [setUser]);
+
   return (
-    <UserContext.Provider value={{ user, setUser, signOut, isLoading }}>
+    <UserContext.Provider value={{ user, setUser, signOut, isLoading, loginWithCredential }}>
       {children}
     </UserContext.Provider>
   );
