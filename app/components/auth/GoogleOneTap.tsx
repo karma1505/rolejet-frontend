@@ -83,7 +83,7 @@ export default function GoogleOneTap() {
       auto_select: false,
       cancel_on_tap_outside: false,
       prompt_parent_id: "oneTapPrompt",
-      use_fedcm_for_prompt: true,
+      use_fedcm_for_prompt: false,
     });
 
     window.google.accounts.id.prompt((notification: PromptMomentNotification) => {
