@@ -8,6 +8,7 @@ import GoogleSignInButton from '../auth/GoogleSignInButton';
 export default function Navbar() {
   const { user, signOut, isLoading } = useUser();
   const [open, setOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown on outside click
@@ -161,11 +162,55 @@ export default function Navbar() {
               )}
             </div>
           ) : !isLoading ? (
-            <GoogleSignInButton />
+            <div className="hidden sm:flex items-center gap-1 sm:gap-2">
+              <GoogleSignInButton />
+            </div>
           ) : null}
+
+          {/* Mobile menu toggle */}
+          <button
+            className="md:hidden flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span className="sr-only">Open main menu</span>
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            )}
+          </button>
         </div>
 
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border shadow-xl z-50 animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col px-6 py-6 space-y-6">
+            <Link href="/resumebuilder" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+              Resume Builder
+            </Link>
+            <Link href="/applications" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+              Job Application Tracker
+            </Link>
+            <Link href="/extension" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+              Extension
+            </Link>
+            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+              Blog
+            </Link>
+            {!user && !isLoading && (
+              <div className="pt-2 border-t border-border">
+                <GoogleSignInButton />
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

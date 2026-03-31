@@ -47,7 +47,7 @@ export default function TrustSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex items-center justify-center gap-8 md:gap-16 overflow-x-auto no-scrollbar"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 w-full place-items-center"
         >
           {logos.map((logo) => (
             <motion.div

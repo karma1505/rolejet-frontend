@@ -30,8 +30,8 @@ export default function FeatureTabs() {
   ];
 
   return (
-    <section className="w-full py-24 px-6 max-w-7xl mx-auto" id="how-it-works">
-      <div className="text-center mb-16 space-y-4">
+    <section className="w-full py-16 md:py-24 px-6 max-w-7xl mx-auto" id="how-it-works">
+      <div className="text-center mb-10 md:mb-16 space-y-4">
         <motion.h2
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -64,14 +64,14 @@ export default function FeatureTabs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex flex-wrap justify-center items-center gap-2 mb-8"
+          className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2 mb-8 w-full"
         >
           {features.map((feature, idx) => (
             <button
               key={idx}
               onClick={() => setActiveTab(idx)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === idx
-                ? 'bg-primary text-black shadow-lg shadow-primary/20 scale-105'
+              className={`w-full sm:w-auto px-6 py-3 rounded-full text-center text-sm font-medium transition-all duration-300 ${activeTab === idx
+                ? 'bg-primary text-black shadow-lg shadow-primary/20 scale-100 sm:scale-105'
                 : 'bg-surface hover:bg-surface-hover text-text-secondary border border-border'
                 }`}
             >
@@ -80,7 +80,7 @@ export default function FeatureTabs() {
           ))}
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center p-4 md:p-8 animate-in fade-in duration-500">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center p-4 md:p-8 animate-in fade-in duration-500">
           <div className="space-y-6">
             <div className={`w-12 h-1 bg-gradient-to-r ${features[activeTab].color} rounded-full`}></div>
             <h3 className="text-3xl font-bold tracking-tight">{features[activeTab].description}</h3>

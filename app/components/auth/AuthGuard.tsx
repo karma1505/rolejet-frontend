@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useUser } from '../providers/UserProvider';
+import GoogleSignInButton from './GoogleSignInButton';
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useUser();
@@ -109,8 +110,18 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
             transition={{ delay: 0.4, duration: 0.4 }}
             className="text-sm text-text-secondary font-sans leading-relaxed mb-8"
           >
-            This tool is only available to authenticated users. The Google sign-in prompt should appear automatically — just follow it to get instant access.
+            This tool is only available to authenticated users. Sign in below with your Google account to get instant access — no password needed.
           </motion.p>
+
+          {/* Google Sign In Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.4 }}
+            className="w-full flex justify-center mb-6"
+          >
+            <GoogleSignInButton />
+          </motion.div>
 
           {/* Divider with label */}
           <motion.div

@@ -15,22 +15,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    // Check if theme is saved in localStorage
-    const savedTheme = localStorage.getItem('rolejet-theme') as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else {
-      // Default to light as per user request
-      document.documentElement.classList.remove('dark');
-    }
+    // Force Light Theme
+    document.documentElement.classList.remove('dark');
+    setTheme('light');
+    localStorage.setItem('rolejet-theme', 'light');
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('rolejet-theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    // No-op: Dark mode disabled
   };
 
   return (

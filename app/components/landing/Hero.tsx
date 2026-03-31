@@ -75,7 +75,7 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl font-mono-display text-5xl md:text-7xl font-bold tracking-tighter text-text-primary mb-6 leading-[1.2]"
+        className="relative z-10 max-w-4xl font-mono-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-text-primary mb-4 md:mb-6 leading-[1.2]"
       >
         <span className="inline-block pb-4">
           {line1.split("").map((char, index) => (
@@ -102,11 +102,11 @@ export default function Hero() {
         The Career Intelligence Engine for World-Class Engineering Talent. From CS graduates to Principal Architects, execute your search with precision.
       </p>
 
-      <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
-        <Link href="/resumebuilder" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
+      <div className="relative z-10 flex flex-col w-full sm:w-auto sm:flex-row items-center gap-3 sm:gap-4 px-4 sm:px-0 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
+        <Link href="/resumebuilder" className="w-full sm:w-auto h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
           Start Optimizing Now
         </Link>
-        <Link href="#how-it-works" className="h-12 px-8 flex items-center justify-center text-base font-medium bg-surface border border-border text-text-primary rounded-full hover:bg-surface-hover transition-colors">
+        <Link href="#how-it-works" className="w-full sm:w-auto h-12 px-8 flex items-center justify-center text-base font-medium bg-surface border border-border text-text-primary rounded-full hover:bg-surface-hover transition-colors">
           See How It Works
         </Link>
       </div>
