@@ -45,7 +45,8 @@ export default function GoogleOneTap() {
   const handleCredentialResponse = useCallback(
     async (response: GoogleCredentialResponse) => {
       try {
-        const res = await fetch("http://localhost:8000/auth/google", {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        const res = await fetch(`${apiUrl}/auth/google`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ credential: response.credential }),
