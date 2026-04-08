@@ -121,12 +121,12 @@ export default function BuilderForm() {
             {/* Hover Shine Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none"></div>
           </button>
-          <div className="flex items-center justify-center gap-6 mt-6">
-            <p className="text-[10px] text-text-secondary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
-              <span className="w-1.5 h-1.5 rounded-full bg-success/50"></span> Analysis consumes 1 RJ Credit
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-6">
+            <p className="text-[10px] sm:text-sm text-black uppercase tracking-normal flex items-center gap-1.5 font-mono-data text-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-success/50 shrink-0"></span> Analysis consumes 1 RJ Credit
             </p>
-            <p className="text-[10px] text-text-secondary uppercase tracking-normal flex items-center gap-1.5 font-mono-data">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span> Approx 45s processing time
+            <p className="text-[10px] sm:text-sm text-black uppercase tracking-normal flex items-center gap-1.5 font-mono-data text-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-success/50 shrink-0"></span> Approx 45s processing time
             </p>
           </div>
         </div>
