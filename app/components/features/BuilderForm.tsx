@@ -22,7 +22,7 @@ export default function BuilderForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column: Master Resume Upload */}
           <div className="flex flex-col h-full order-2 lg:order-1">
-            <label className="font-mono-data text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
+            <label className="font-sans text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
               <FileText className="w-3 h-3 text-success" />
               Master Resume (All Skills)
             </label>
@@ -47,7 +47,7 @@ export default function BuilderForm() {
                       <FileText className="w-10 h-10 text-text-primary" />
                     </div>
                     <p className="text-base font-semibold text-text-primary truncate max-w-[200px]">{file.name}</p>
-                    <p className="text-xs text-text-secondary mt-2 tracking-wide font-mono-data">{(file.size / 1024 / 1024).toFixed(2)} MB • MASTER ARCHIVE</p>
+                    <p className="text-xs text-text-secondary mt-2 tracking-wide font-sans">{(file.size / 1024 / 1024).toFixed(2)} MB • MASTER ARCHIVE</p>
                     <p className="text-xs text-text-primary mt-8 font-medium px-4 py-2 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">Click to replace archive</p>
                   </motion.div>
                 ) : (
@@ -72,7 +72,7 @@ export default function BuilderForm() {
           {/* Right Column: JD & Goal */}
           <div className="space-y-8 flex flex-col order-1 lg:order-2">
             <div className="flex-1 flex flex-col">
-              <label className="font-mono-data text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
+              <label className="font-sans text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
                 <Target className="w-3 h-3 text-text-primary" />
                 Target Job Description
               </label>
@@ -85,7 +85,7 @@ export default function BuilderForm() {
             </div>
 
             <div className="flex flex-col">
-              <label className="font-mono-data text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
+              <label className="font-sans text-xs uppercase tracking-widest text-text-secondary mb-3 flex items-center gap-2">
                 <Sparkles className="w-3 h-3 text-warning" />
                 Specify Your Target Goal
               </label>
@@ -122,10 +122,10 @@ export default function BuilderForm() {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none"></div>
           </button>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-6">
-            <p className="text-[10px] sm:text-sm text-black uppercase tracking-normal flex items-center gap-1.5 font-mono-data text-center">
+            <p className="text-[10px] sm:text-sm text-black uppercase tracking-normal flex items-center gap-1.5 font-sans text-center">
               <span className="w-1.5 h-1.5 rounded-full bg-success/50 shrink-0"></span> Analysis consumes 1 RJ Credit
             </p>
-            <p className="text-[10px] sm:text-sm text-black uppercase tracking-normal flex items-center gap-1.5 font-mono-data text-center">
+            <p className="text-[10px] sm:text-sm text-black uppercase tracking-normal flex items-center gap-1.5 font-sans text-center">
               <span className="w-1.5 h-1.5 rounded-full bg-success/50 shrink-0"></span> Approx 45s processing time
             </p>
           </div>

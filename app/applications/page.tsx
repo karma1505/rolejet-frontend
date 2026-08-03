@@ -60,7 +60,7 @@ export default function ApplicationTrackerPage() {
                      initial="hidden"
                      animate="visible"
                      variants={containerVariants}
-                     className="text-4xl md:text-6xl font-mono-display font-bold tracking-tighter text-text-primary leading-[1.2]"
+                     className="text-4xl md:text-6xl font-sans font-bold tracking-tighter text-text-primary leading-[1.2]"
                   >
                      {"Application Tracker.".split("").map((char, index) => (
                         <motion.span key={`l1-${index}`} variants={letterVariants} className="inline-block">
@@ -136,10 +136,10 @@ export default function ApplicationTrackerPage() {
                <div className="lg:col-span-2">
                   <div className="bg-surface border border-border rounded-2xl p-5 md:p-8 backdrop-blur-md h-full">
                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-3 sm:gap-0">
-                        <h3 className="text-xs font-mono-data text-text-tertiary uppercase tracking-[0.2em]">Recent Strategic Applications</h3>
+                        <h3 className="text-xs font-sans text-text-tertiary uppercase tracking-[0.2em]">Recent Strategic Applications</h3>
                         <Link
                            href="#"
-                           className="text-[10px] font-mono-data text-text-primary hover:underline flex items-center gap-1 uppercase tracking-widest"
+                           className="text-[10px] font-sans text-text-primary hover:underline flex items-center gap-1 uppercase tracking-widest"
                         >
                            View All <ArrowRight className="w-3 h-3" />
                         </Link>
@@ -156,7 +156,7 @@ export default function ApplicationTrackerPage() {
                            >
                               <div className="flex items-center gap-3 sm:gap-4">
                                  <div className="w-10 h-10 shrink-0 rounded-lg bg-background flex items-center justify-center border border-border group-hover:border-primary/30 transition-colors">
-                                    <span className="text-xs font-mono-data font-bold text-text-primary">{app.company[0]}</span>
+                                    <span className="text-xs font-sans font-bold text-text-primary">{app.company[0]}</span>
                                  </div>
                                  <div>
                                     <h4 className="text-sm font-semibold text-text-primary">{app.company}</h4>
@@ -165,18 +165,18 @@ export default function ApplicationTrackerPage() {
                               </div>
 
                               <div className="hidden md:flex flex-col items-center">
-                                 <p className="text-[10px] text-text-tertiary uppercase tracking-widest font-mono-data mb-1">Match Score</p>
+                                 <p className="text-[10px] text-text-tertiary uppercase tracking-widest font-sans mb-1">Match Score</p>
                                  <div className="flex items-center gap-2">
                                     <div className="w-24 h-1 rounded-full bg-border overflow-hidden">
                                        <div className={`h-full bg-primary`} style={{ width: `${app.match}%` }}></div>
                                     </div>
-                                    <span className="text-[10px] font-mono-data text-text-primary">{app.match}%</span>
+                                    <span className="text-[10px] font-sans text-text-primary">{app.match}%</span>
                                  </div>
                               </div>
 
                               <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-4 sm:gap-6 pt-3 sm:pt-0 border-t border-border/50 sm:border-0">
                                  <div className="text-left sm:text-right flex sm:block items-center gap-4 sm:gap-0">
-                                    <p className={`text-[10px] font-mono-data uppercase tracking-widest ${app.status === 'Interview' ? 'text-text-primary' :
+                                    <p className={`text-[10px] font-sans uppercase tracking-widest ${app.status === 'Interview' ? 'text-text-primary' :
                                        app.status === 'Rejected' ? 'text-danger' :
                                           app.status === 'Offer' ? 'text-success' : 'text-text-primary'
                                        }`}>{app.status}</p>

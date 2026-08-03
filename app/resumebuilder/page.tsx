@@ -47,7 +47,7 @@ export default function ResumeBuilderPage() {
               initial="hidden"
               animate="visible"
               variants={containerVariants}
-              className="text-4xl md:text-6xl font-mono-display font-bold tracking-tighter text-text-primary leading-[1.2]"
+              className="text-4xl md:text-6xl font-sans font-bold tracking-tighter text-text-primary leading-[1.2]"
             >
               {"Targeted Resume Rewriting.".split("").map((char, index) => (
                 <motion.span key={`l1-${index}`} variants={letterVariants} className="inline-block">
@@ -85,15 +85,15 @@ export default function ResumeBuilderPage() {
             className="mt-20 pt-12 border-t border-border/50 w-full max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8 opacity-40 select-none grayscale"
           >
             <div className="flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm font-mono-data uppercase tracking-widest text-black">Encryption Status</p>
+              <p className="text-sm font-sans uppercase tracking-widest text-black">Encryption Status</p>
               <p className="text-xs text-black">AES-256 Bit Multi-layered Security Active</p>
             </div>
             <div className="flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm font-mono-data uppercase tracking-widest text-black">AI Engine</p>
+              <p className="text-sm font-sans uppercase tracking-widest text-black">AI Engine</p>
               <p className="text-xs text-black">Next-gen LMM Forensic Pattern Matching</p>
             </div>
             <div className="flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm font-mono-data uppercase tracking-widest text-black">Data Policy</p>
+              <p className="text-sm font-sans uppercase tracking-widest text-black">Data Policy</p>
               <p className="text-xs text-black">Zero-retention Analysis (Standard)</p>
             </div>
           </motion.div>

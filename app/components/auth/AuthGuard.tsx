@@ -89,7 +89,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.4 }}
-            className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono-display font-semibold tracking-widest uppercase"
+            className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-sans font-semibold tracking-widest uppercase"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Access Restricted
@@ -99,7 +99,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.4 }}
-            className="text-2xl font-mono-display font-bold tracking-tight text-text-primary mb-3"
+            className="text-2xl font-sans font-bold tracking-tight text-text-primary mb-3"
           >
             Sign in to continue
           </motion.h1>

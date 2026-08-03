@@ -39,7 +39,7 @@ export default function TrustSection() {
   return (
     <section className="w-full py-20 bg-surface/30">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-center text-[10px] font-mono-data tracking-[0.45em] text-text-tertiary uppercase mb-10">
+        <p className="text-center text-sm font-sans tracking-[0.25em] text-text-tertiary uppercase mb-10">
           Accelerating Success at Top-Tier Teams
         </p>
         <motion.div

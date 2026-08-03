@@ -52,7 +52,7 @@ export default function OnboardingModal() {
 
           <div className="p-8 md:p-10 space-y-8">
             <div className="text-center space-y-2">
-              <h2 className="text-2xl md:text-3xl font-mono-display font-bold tracking-tight text-text-primary">
+              <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-tight text-text-primary">
                 The Master Resume Strategy
               </h2>
               <p className="text-text-secondary font-sans">
@@ -105,7 +105,7 @@ export default function OnboardingModal() {
               >
                 Enter the Builder
               </button>
-              <p className="text-[10px] text-center text-text-tertiary mt-4 uppercase tracking-[0.2em] font-mono-data">
+              <p className="text-[10px] text-center text-text-tertiary mt-4 uppercase tracking-[0.2em] font-sans">
                 Security Policy: AES-256 Multi-layer Protection Active
               </p>
             </div>

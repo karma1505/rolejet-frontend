@@ -31,7 +31,7 @@ export default function StatsCard({ label, value, trend, trendType = 'neutral', 
           </div>
         )}
         {trend && (
-          <span className={`text-[10px] font-mono-data px-2 py-0.5 rounded-full border ${trendColors[trendType]} tracking-tight uppercase`}>
+          <span className={`text-[10px] font-sans px-2 py-0.5 rounded-full border ${trendColors[trendType]} tracking-tight uppercase`}>
             {trend}
           </span>
         )}
@@ -39,7 +39,7 @@ export default function StatsCard({ label, value, trend, trendType = 'neutral', 
 
       <div className="px-6 pb-6 space-y-1">
         <h3 className="text-sm font-sans font-medium text-text-tertiary uppercase tracking-wider">{label}</h3>
-        <p className="text-3xl font-mono-display font-bold text-text-primary tracking-tighter">
+        <p className="text-3xl font-sans font-bold text-text-primary tracking-tighter">
           {value}
         </p>
       </div>

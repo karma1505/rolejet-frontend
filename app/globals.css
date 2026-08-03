@@ -1,34 +1,55 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
 
 @theme {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-border: var(--border);
-  --color-primary: #BEF264;
-  --color-brand: #BEF264;
-  --color-accent: #10B981;
-  --color-success: #22C55E;
-  --color-warning: #FFB800;
-  --color-danger: #EF4444;
-  --color-info: #3b82f6;
+  --color-primary: #424874;
+  --color-brand: #424874;
+  --color-accent: #A6B1E1;
+  --color-success: #424874;
+  --color-warning: #A6B1E1;
+  --color-danger: #424874;
+  --color-info: #424874;
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
 
-  --font-mono-display: var(--font-space-mono), var(--font-geist-mono), monospace;
+  --font-mono-display: var(--font-inter), sans-serif;
   --font-sans: var(--font-inter), sans-serif;
-  --font-mono-data: var(--font-jetbrains-mono), monospace;
 }
 
 :root {
-  --background: #ffffff;
-  --surface: #fafafa;
-  --surface-hover: #f4f4f5;
-  --border: #e4e4e7;
-  --text-primary: #09090b;
-  --text-secondary: #52525b;
-  --text-tertiary: #a1a1aa;
+  /* User Defined Palette */
+  --background: #F4EEFF;
+  --surface: #FFFFFF;
+  --surface-hover: #DCD6F7;
+  --footer-bg: #424874;
+  --border: #DCD6F7;
+  --text-primary: #424874;
+  --text-secondary: #424874;
+  --text-tertiary: #A6B1E1;
+}
+
+.dark {
+  --background: #1B1E36;
+  --surface: #262A49;
+  --surface-hover: #32375F;
+  --footer-bg: #121424;
+  --border: #3D4470;
+  --text-primary: #F4EEFF;
+  --text-secondary: #DCD6F7;
+  --text-tertiary: #A6B1E1;
 }
 
 @layer base {

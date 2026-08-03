@@ -96,7 +96,7 @@ export default function ExtensionLandingPage() {
               initial="hidden"
               animate="visible"
               variants={containerVariants}
-              className="text-4xl md:text-6xl font-mono-display font-bold tracking-tighter text-text-primary leading-[1.2]"
+              className="text-4xl md:text-6xl font-sans font-bold tracking-tighter text-text-primary leading-[1.2]"
             >
               {"Apply at lightning speed.".split("").map((char, index) => (
                 <motion.span key={`l1-${index}`} variants={letterVariants} className="inline-block">
@@ -152,7 +152,7 @@ export default function ExtensionLandingPage() {
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border mb-6">
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-3xl font-mono-display font-bold text-text-primary tracking-tighter mb-4">Magic Autofill</h2>
+                <h2 className="text-3xl font-sans font-bold text-text-primary tracking-tighter mb-4">Magic Autofill</h2>
                 <p className="text-text-secondary font-sans leading-relaxed mb-8">
                   Workday, Lever, Greenhouse. RoleJet detects form fields and injects your personal details perfectly.
                 </p>
@@ -180,7 +180,7 @@ export default function ExtensionLandingPage() {
                     <div className="w-3 h-3 rounded-full bg-border" />
                     <div className="w-3 h-3 rounded-full bg-border" />
                   </div>
-                  <div className="text-[10px] text-text-tertiary font-mono-data uppercase tracking-widest text-center truncate">company.com/apply</div>
+                  <div className="text-[10px] text-text-tertiary font-sans uppercase tracking-widest text-center truncate">company.com/apply</div>
                 </div>
 
                 <div className="space-y-4 font-sans text-sm">
@@ -215,7 +215,7 @@ export default function ExtensionLandingPage() {
                 <button
                   onClick={runAutofillDemo}
                   disabled={demoState !== 'idle'}
-                  className="absolute -right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 bg-text-primary text-background px-4 py-3 rounded-xl shadow-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all font-mono-data text-xs uppercase tracking-widest"
+                  className="absolute -right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 bg-text-primary text-background px-4 py-3 rounded-xl shadow-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all font-sans text-xs uppercase tracking-widest"
                 >
                   <Zap className={`w-4 h-4 ${demoState === 'filling' ? 'animate-pulse' : ''}`} />
                   <span>
@@ -239,7 +239,7 @@ export default function ExtensionLandingPage() {
                 className="flex gap-4 h-[350px]"
               >
                 <div className="w-1/2 bg-surface border border-border rounded-2xl p-4 flex flex-col relative overflow-hidden">
-                  <h3 className="text-xs font-mono-data text-text-tertiary uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b border-border pb-3">
+                  <h3 className="text-xs font-sans text-text-tertiary uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b border-border pb-3">
                     <FileText className="w-3 h-3" /> Ex. Sidebar
                   </h3>
 
@@ -255,7 +255,7 @@ export default function ExtensionLandingPage() {
                           <GripVertical className="w-3 h-3 text-text-tertiary" />
                           <p className="text-xs font-sans text-text-primary truncate">{doc}</p>
                         </div>
-                        <p className="text-[10px] text-text-tertiary mt-2 font-mono-data uppercase pl-5">Tailored 2h ago</p>
+                        <p className="text-[10px] text-text-tertiary mt-2 font-sans uppercase pl-5">Tailored 2h ago</p>
                       </div>
                     ))}
                   </div>
@@ -286,7 +286,7 @@ export default function ExtensionLandingPage() {
                       <div className="w-12 h-12 rounded-full bg-border flex items-center justify-center mb-4">
                         <Download className="w-5 h-5 text-text-tertiary" />
                       </div>
-                      <p className="text-center text-xs font-mono-data uppercase tracking-widest text-text-primary mb-2">
+                      <p className="text-center text-xs font-sans uppercase tracking-widest text-text-primary mb-2">
                         Upload Resume
                       </p>
                     </>
@@ -303,7 +303,7 @@ export default function ExtensionLandingPage() {
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border mb-6">
                   <FileText className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-3xl font-mono-display font-bold text-text-primary tracking-tighter mb-4">Drag, Drop, Apply.</h2>
+                <h2 className="text-3xl font-sans font-bold text-text-primary tracking-tighter mb-4">Drag, Drop, Apply.</h2>
                 <p className="text-text-secondary font-sans leading-relaxed mb-8">
                   Access every resume you've built straight from your browser sidebar. No more hunting through your downloads folder.
                 </p>
@@ -328,15 +328,15 @@ export default function ExtensionLandingPage() {
             className="mt-12 pt-12 border-t border-border/50 w-full max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8 opacity-40 select-none grayscale"
           >
             <div className="flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm font-mono-data uppercase tracking-widest text-black dark:text-white">Security</p>
+              <p className="text-sm font-sans uppercase tracking-widest text-black dark:text-white">Security</p>
               <p className="text-xs text-black dark:text-white">Local Execution Engine</p>
             </div>
             <div className="flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm font-mono-data uppercase tracking-widest text-black dark:text-white">Compatibility</p>
+              <p className="text-sm font-sans uppercase tracking-widest text-black dark:text-white">Compatibility</p>
               <p className="text-xs text-black dark:text-white">Chromium & WebKit</p>
             </div>
             <div className="flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm font-mono-data uppercase tracking-widest text-black dark:text-white">Data Policy</p>
+              <p className="text-sm font-sans uppercase tracking-widest text-black dark:text-white">Data Policy</p>
               <p className="text-xs text-black dark:text-white">Zero-retention Analysis</p>
             </div>
           </motion.div>

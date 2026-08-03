@@ -31,7 +31,7 @@ function SectionCard({ children, index }: { children: React.ReactNode; index: nu
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-xs font-mono-display font-bold uppercase tracking-widest text-text-tertiary mb-5">
+    <h2 className="text-xs font-sans font-bold uppercase tracking-widest text-text-tertiary mb-5">
       {children}
     </h2>
   );
@@ -63,7 +63,7 @@ export default function SettingsPage() {
             transition={{ duration: 0.4 }}
             className="mb-2"
           >
-            <h1 className="text-3xl font-mono-display font-bold tracking-tight text-text-primary">Settings</h1>
+            <h1 className="text-3xl font-sans font-bold tracking-tight text-text-primary">Settings</h1>
             <p className="text-sm text-text-secondary font-sans mt-1">Manage your account and preferences.</p>
           </motion.div>
 
@@ -79,7 +79,7 @@ export default function SettingsPage() {
                   className="w-16 h-16 rounded-full object-cover ring-2 ring-border"
                 />
               ) : (
-                <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xl font-bold text-primary font-mono-display">
+                <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xl font-bold text-primary font-sans">
                   {(user.full_name ?? user.email)[0].toUpperCase()}
                 </div>
               )}
@@ -106,10 +106,10 @@ export default function SettingsPage() {
           <SectionCard index={1}>
             <SectionTitle>RJ Credits</SectionTitle>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-4xl font-mono-display font-bold text-text-primary">0</span>
-              <span className="text-4xl font-mono-display font-bold text-text-tertiary">/</span>
-              <span className="text-4xl font-mono-display font-bold text-text-tertiary">100</span>
-              <span className="text-sm font-mono-display text-text-tertiary ml-1">credits</span>
+              <span className="text-4xl font-sans font-bold text-text-primary">0</span>
+              <span className="text-4xl font-sans font-bold text-text-tertiary">/</span>
+              <span className="text-4xl font-sans font-bold text-text-tertiary">100</span>
+              <span className="text-sm font-sans text-text-tertiary ml-1">credits</span>
             </div>
             <p className="text-xs text-text-secondary font-sans mb-3">Resets on the 1st of every month</p>
             <div className="h-2 rounded-full bg-surface border border-border overflow-hidden mb-4">
@@ -122,8 +122,8 @@ export default function SettingsPage() {
                 { label: 'Job Analysis', cost: '1 credit' },
               ].map(item => (
                 <div key={item.label} className="rounded-xl bg-surface border border-border p-3">
-                  <p className="text-[10px] font-mono-data uppercase tracking-wider text-text-tertiary">{item.label}</p>
-                  <p className="text-sm font-mono-display font-semibold text-text-primary mt-1">{item.cost}</p>
+                  <p className="text-[10px] font-sans uppercase tracking-wider text-text-tertiary">{item.label}</p>
+                  <p className="text-sm font-sans font-semibold text-text-primary mt-1">{item.cost}</p>
                 </div>
               ))}
             </div>

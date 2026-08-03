@@ -14,9 +14,9 @@ export default function LeftRail() {
       {/* Brand */}
       <div className={`h-16 flex items-center border-b border-border ${isCollapsed ? 'justify-center' : 'justify-center sm:justify-start sm:px-6'}`}>
         <div className="w-8 h-8 rounded border border-text-tertiary flex items-center justify-center shrink-0">
-          <span className="font-mono-display text-xs text-text-secondary">R</span>
+          <span className="font-sans text-xs text-text-secondary">R</span>
         </div>
-        {!isCollapsed && <span className="hidden sm:block ml-3 font-mono-display text-xl tracking-tight text-text-primary leading-none mt-1">RoleJet</span>}
+        {!isCollapsed && <span className="hidden sm:block ml-3 font-sans text-xl tracking-tight text-text-primary leading-none mt-1">RoleJet</span>}
       </div>
 
       {/* Nav Links */}

@@ -23,7 +23,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full border-b border-border bg-background/60 backdrop-blur-md fixed top-0 z-[100]">
+    <nav className="w-full border-b border-[#A6B1E1]/40 bg-gradient-to-r from-[#424874] via-[#383C66] to-[#2B2E4E] backdrop-blur-md fixed top-0 z-[100] text-[#F4EEFF] shadow-md transition-all">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between w-full">
 
         {/* Logo */}
@@ -33,21 +33,21 @@ export default function Navbar() {
             alt="RoleJet"
             className="w-8 h-8 rounded-md group-hover:opacity-90 transition-opacity"
           />
-          <span className="font-mono-display font-semibold tracking-tight text-lg text-text-primary">RoleJet</span>
+          <span className="font-sans font-semibold tracking-tight text-lg text-[#F4EEFF]">RoleJet</span>
         </Link>
 
         {/* Center nav links */}
         <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          <Link href="/resumebuilder" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/resumebuilder" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
             Resume Builder
           </Link>
-          <Link href="/applications" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/applications" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
             Job Application Tracker
           </Link>
-          <Link href="/extension" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/extension" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
             Extension
           </Link>
-          <Link href="/blog" className="text-sm font-sans font-medium text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/blog" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
             Blog
           </Link>
         </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
                     className="w-8 h-8 rounded-full object-cover ring-2 ring-border group-hover:ring-primary/40 transition-all"
                   />
                 ) : (
-                  <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xs font-semibold text-primary font-mono-display">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xs font-semibold text-primary font-sans">
                     {(user.full_name ?? user.email)[0].toUpperCase()}
                   </div>
                 )}
@@ -116,12 +116,12 @@ export default function Navbar() {
                   <div className="px-4 py-3 border-b border-border">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono-display text-text-secondary">RJ</span>
-                        <span className="text-xs font-mono-display text-text-secondary">Credits</span>
+                        <span className="text-xs font-sans text-text-secondary">RJ</span>
+                        <span className="text-xs font-sans text-text-secondary">Credits</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-xs font-mono-display text-text-secondary">0</span>
-                        <span className="text-xs font-mono-display text-text-secondary">credits</span>
+                        <span className="text-xs font-sans text-text-secondary">0</span>
+                        <span className="text-xs font-sans text-text-secondary">credits</span>
                       </div>
                     </div>
                     <div className="mt-2 h-1.5 rounded-full bg-surface overflow-hidden">
@@ -169,7 +169,7 @@ export default function Navbar() {
 
           {/* Mobile menu toggle */}
           <button
-            className="md:hidden flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface transition-colors"
+            className="md:hidden flex items-center justify-center p-2 rounded-md text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -189,18 +189,18 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border shadow-xl z-50 animate-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden absolute top-16 left-0 w-full bg-gradient-to-b from-[#424874] via-[#383C66] to-[#2B2E4E] border-b border-[#A6B1E1]/40 shadow-xl z-50 animate-in slide-in-from-top-2 duration-200 text-[#F4EEFF]">
           <div className="flex flex-col px-6 py-6 space-y-6">
-            <Link href="/resumebuilder" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+            <Link href="/resumebuilder" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
               Resume Builder
             </Link>
-            <Link href="/applications" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+            <Link href="/applications" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
               Job Application Tracker
             </Link>
-            <Link href="/extension" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+            <Link href="/extension" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
               Extension
             </Link>
-            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-text-primary">
+            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
               Blog
             </Link>
             {!user && !isLoading && (

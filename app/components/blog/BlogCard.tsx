@@ -30,14 +30,14 @@ export default function BlogCard({ title, excerpt, category, date, readTime, ima
           className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[0.2] group-hover:grayscale-0"
         />
         <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-background/80 backdrop-blur-md border border-border/50 rounded-full text-[10px] font-mono-data text-text-primary uppercase tracking-widest">
+          <span className="px-3 py-1 bg-background/80 backdrop-blur-md border border-border/50 rounded-full text-[10px] font-sans text-text-primary uppercase tracking-widest">
             {category}
           </span>
         </div>
       </Link>
       
       <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-center gap-4 mb-4 text-[10px] font-mono-data text-text-tertiary uppercase tracking-wider">
+        <div className="flex items-center gap-4 mb-4 text-[10px] font-sans text-text-tertiary uppercase tracking-wider">
           <div className="flex items-center gap-1.5">
             <Calendar className="w-3 h-3" />
             {date}
@@ -49,7 +49,7 @@ export default function BlogCard({ title, excerpt, category, date, readTime, ima
         </div>
         
         <Link href={href} className="group-hover:text-text-primary transition-colors">
-          <h3 className="text-xl font-mono-display font-bold text-text-primary mb-3 leading-tight tracking-tight">
+          <h3 className="text-xl font-sans font-bold text-text-primary mb-3 leading-tight tracking-tight">
             {title}
           </h3>
         </Link>
@@ -60,7 +60,7 @@ export default function BlogCard({ title, excerpt, category, date, readTime, ima
         
         <Link 
           href={href} 
-          className="inline-flex items-center gap-2 text-xs font-mono-data text-text-primary uppercase tracking-widest group/btn"
+          className="inline-flex items-center gap-2 text-xs font-sans text-text-primary uppercase tracking-widest group/btn"
         >
           Read Perspective 
           <ArrowUpRight className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

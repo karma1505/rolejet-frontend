@@ -33,21 +33,21 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-      {/* Premium Unified Background Glow - Direct CSS for Reliability */}
+      {/* Premium Unified Ambient Glow - Subtle #424874 & #A6B1E1 Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
         {/* Top center ambient glow */}
         <div
-          className="absolute inset-0 transform-gpu opacity-30"
+          className="absolute inset-0 transform-gpu opacity-40"
           style={{
-            background: 'radial-gradient(circle at 50% 0%, #BEF264 0%, transparent 75%)',
+            background: 'radial-gradient(circle at 50% 0%, rgba(66, 72, 116, 0.3) 0%, transparent 75%)',
           }}
         />
 
         {/* Main central glow behind text */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] max-w-[1400px] transform-gpu opacity-40 blur-[120px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] max-w-[1400px] transform-gpu opacity-30 blur-[120px]"
           style={{
-            background: 'radial-gradient(circle at 50% 50%, #BEF264 0%, transparent 70%)',
+            background: 'radial-gradient(circle at 50% 50%, rgba(66, 72, 116, 0.25) 0%, transparent 70%)',
           }}
         />
 
@@ -55,27 +55,27 @@ export default function Hero() {
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
+            opacity: [0.2, 0.35, 0.2],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full blur-[100px] transform-gpu"
-          style={{ background: 'radial-gradient(circle at 50% 50%, #10B981 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle at 50% 50%, rgba(166, 177, 225, 0.25) 0%, transparent 70%)' }}
         />
         <motion.div
           animate={{
             scale: [1.3, 1, 1.3],
-            opacity: [0.1, 0.2, 0.1],
+            opacity: [0.15, 0.3, 0.15],
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           className="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] rounded-full blur-[120px] transform-gpu"
-          style={{ background: 'radial-gradient(circle at 50% 50%, #BEF264 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle at 50% 50%, rgba(66, 72, 116, 0.3) 0%, transparent 70%)' }}
         />
       </div>
       <motion.h1
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl font-mono-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-text-primary mb-4 md:mb-6 leading-[1.2]"
+        className="relative z-10 max-w-4xl font-sans text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-text-primary mb-6 leading-[1.1]"
       >
         <span className="inline-block pb-4">
           {line1.split("").map((char, index) => (
@@ -103,7 +103,7 @@ export default function Hero() {
       </p>
 
       <div className="relative z-10 flex flex-col w-full sm:w-auto sm:flex-row items-center gap-3 sm:gap-4 px-4 sm:px-0 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both fade-in-0 slide-in-from-bottom-[10%]">
-        <Link href="/resumebuilder" className="w-full sm:w-auto h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
+        <Link href="/resumebuilder" className="w-full sm:w-auto h-12 px-8 flex items-center justify-center text-base font-medium bg-primary text-white rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5">
           Start Optimizing Now
         </Link>
         <Link href="#how-it-works" className="w-full sm:w-auto h-12 px-8 flex items-center justify-center text-base font-medium bg-surface border border-border text-text-primary rounded-full hover:bg-surface-hover transition-colors">
@@ -114,13 +114,13 @@ export default function Hero() {
       <div className="relative z-10 mt-8 flex items-center gap-2 animate-in fade-in duration-1000 delay-500 fill-mode-both fade-in-0">
         <div className="flex -space-x-2">
           {[1, 2, 3, 4, 5].map((i) => (
-            <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-surface flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40"></div>
+            <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-[#DCD6F7] flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full bg-[#A6B1E1]"></div>
             </div>
           ))}
         </div>
         <div className="flex flex-col items-start px-2 text-left">
-          <div className="flex text-warning text-[10px]">
+          <div className="flex text-primary text-[10px]">
             {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
           </div>
           <p className="text-[10px] text-text-secondary font-medium tracking-tight">Join 10,000+ job seekers using RoleJet</p>

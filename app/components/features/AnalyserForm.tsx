@@ -10,7 +10,7 @@ export default function AnalyserForm({ onAnalyze }: { onAnalyze?: () => void }) 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl">
       {/* Job Description Input */}
       <div className="flex flex-col h-full">
-        <label className="font-mono-data text-xs uppercase tracking-wider text-text-tertiary mb-3">Target Job Description</label>
+        <label className="font-sans text-xs uppercase tracking-wider text-text-tertiary mb-3">Target Job Description</label>
         <textarea
           value={jd}
           onChange={(e) => setJd(e.target.value)}
@@ -21,7 +21,7 @@ export default function AnalyserForm({ onAnalyze }: { onAnalyze?: () => void }) 
 
       {/* Resume Upload & Submit */}
       <div className="flex flex-col h-full">
-        <label className="font-mono-data text-xs uppercase tracking-wider text-text-tertiary mb-3">Your Resume (PDF)</label>
+        <label className="font-sans text-xs uppercase tracking-wider text-text-tertiary mb-3">Your Resume (PDF)</label>
 
         <label className={`flex-1 min-h-[250px] w-full bg-surface border-2 border-dashed rounded-md flex flex-col items-center justify-center p-6 cursor-pointer group transition-all duration-200 ${file ? 'border-primary/50 bg-primary/5' : 'border-border hover:border-text-secondary'}`}>
           <input
@@ -54,7 +54,7 @@ export default function AnalyserForm({ onAnalyze }: { onAnalyze?: () => void }) 
           >
             Run Forensic Analysis
           </button>
-          <p className="text-xs text-center text-text-tertiary mt-4 font-mono-data">Analysis consumes 1 RJ Credit</p>
+          <p className="text-xs text-center text-text-tertiary mt-4 font-sans">Analysis consumes 1 RJ Credit</p>
         </div>
       </div>
     </div>

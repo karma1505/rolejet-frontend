@@ -18,7 +18,7 @@ export default function ApplicationChart({ data, title }: ApplicationChartProps)
   return (
     <div className="bg-surface border border-border rounded-2xl p-8 backdrop-blur-md h-full flex flex-col">
       <div className="flex items-center justify-between mb-8">
-        <h3 className="text-xs font-mono-data text-text-tertiary uppercase tracking-[0.2em]">{title}</h3>
+        <h3 className="text-xs font-sans text-text-tertiary uppercase tracking-[0.2em]">{title}</h3>
       </div>
 
       <div className="flex-1 flex flex-col justify-center space-y-6">
@@ -44,7 +44,7 @@ export default function ApplicationChart({ data, title }: ApplicationChartProps)
                 style={{ backgroundColor: item.color }}
               />
               <div className="flex flex-col">
-                <span className="text-[10px] font-mono-data text-text-tertiary uppercase tracking-wider">{item.label}</span>
+                <span className="text-[10px] font-sans text-text-tertiary uppercase tracking-wider">{item.label}</span>
                 <span className="text-sm font-bold text-text-primary">{item.value}</span>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function ApplicationChart({ data, title }: ApplicationChartProps)
       
       <div className="mt-8 pt-6 border-t border-border/50">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] font-mono-data text-text-tertiary uppercase">Pipeline Efficiency</span>
+          <span className="text-[10px] font-sans text-text-tertiary uppercase">Pipeline Efficiency</span>
           <span className="text-xs font-bold text-success">Optimal</span>
         </div>
       </div>

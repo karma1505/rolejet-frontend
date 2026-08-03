@@ -37,7 +37,7 @@ export default function FeatureTabs() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-3xl md:text-5xl font-mono-display font-bold tracking-tight"
+          className="text-3xl md:text-5xl font-sans font-bold tracking-tight"
         >
           One platform. <br /><span className="text-text-primary">Every high-stakes</span> move.
         </motion.h2>

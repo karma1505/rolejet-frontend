@@ -54,7 +54,7 @@ export default function RoleJetScoreBadge({ score, label, description, size = 'm
             style={{ transition: 'stroke-dashoffset 1s ease-out' }}
           />
         </svg>
-        <span className={`font-mono-data font-bold tracking-tighter ${currentSize.text} ${colorClass}`}>{score}</span>
+        <span className={`font-sans font-bold tracking-tighter ${currentSize.text} ${colorClass}`}>{score}</span>
       </div>
       {(label || description) && (
         <div className="flex flex-col justify-center">

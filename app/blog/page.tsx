@@ -49,7 +49,7 @@ export default function BlogPage() {
           <motion.h1
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-4xl md:text-6xl font-mono-display font-bold text-text-primary tracking-tighter"
+            className="text-4xl md:text-6xl font-sans font-bold text-text-primary tracking-tighter"
           >
             Insights into the <span className="text-text-primary">Intelligent Career.</span>
           </motion.h1>
@@ -95,13 +95,13 @@ export default function BlogPage() {
           className="mt-32 p-12 rounded-3xl bg-surface/30 border border-border/50 backdrop-blur-sm text-center relative overflow-hidden group"
         >
           <div className="relative z-10">
-            <h2 className="text-2xl font-mono-display font-bold text-text-primary mb-4 tracking-tight">Stay Strategically Informed.</h2>
+            <h2 className="text-2xl font-sans font-bold text-text-primary mb-4 tracking-tight">Stay Strategically Informed.</h2>
             <p className="text-text-secondary text-sm mb-8 max-w-sm mx-auto">Zero-noise technical career updates delivered directly to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="eng-dir@company.com"
-                className="flex-1 h-12 bg-background border border-border rounded-xl px-4 text-xs font-mono-data focus:outline-none focus:border-primary transition-all"
+                className="flex-1 h-12 bg-background border border-border rounded-xl px-4 text-xs font-sans focus:outline-none focus:border-primary transition-all"
               />
               <button className="h-12 px-8 bg-primary text-black hover:bg-primary/90 transition-all">
                 Subscribe

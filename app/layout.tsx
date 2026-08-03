@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Mono, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,11 +13,6 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-});
-
 // layout components handled locally where needed
 export const metadata: Metadata = {
   title: "RoleJet | Apply less. Hear back more.",
@@ -27,6 +22,8 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "./components/providers/ThemeProvider";
 import { UserProvider } from "./components/providers/UserProvider";
 import GoogleOneTap from "./components/auth/GoogleOneTap";
+import SmoothScroll from "./components/providers/SmoothScroll";
+import BackgroundGlow from "./components/ui/BackgroundGlow";
 
 export default function RootLayout({
   children,
@@ -36,13 +33,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceMono.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${spaceMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col font-sans bg-background text-text-primary transition-colors duration-300">
+      <body className="min-h-screen flex flex-col font-sans bg-background text-text-primary transition-colors duration-300 relative">
+        <BackgroundGlow />
         <ThemeProvider>
           <UserProvider>
-            {children}
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
             <GoogleOneTap />
           </UserProvider>
         </ThemeProvider>
