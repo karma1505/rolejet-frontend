@@ -1,11 +1,21 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { useUser } from '../providers/UserProvider';
 import GoogleSignInButton from '../auth/GoogleSignInButton';
+import {
+  Settings,
+  LogOut,
+  ChevronDown,
+  Menu,
+  X,
+  Sparkles,
+} from 'lucide-react';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const { user, signOut, isLoading } = useUser();
   const [open, setOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,44 +32,65 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  return (
-    <nav className="w-full border-b border-[#A6B1E1]/40 bg-gradient-to-r from-[#424874] via-[#383C66] to-[#2B2E4E] backdrop-blur-md fixed top-0 z-[100] text-[#F4EEFF] shadow-md transition-all">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between w-full">
+  const navLinks = [
+    { href: '/resumebuilder', label: 'Resume Builder' },
+    { href: '/applications', label: 'Job Application Tracker' },
+    { href: '/extension', label: 'Extension' },
+    { href: '/blog', label: 'Blog' },
+  ];
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <img
-            src="/rolejet.svg"
-            alt="RoleJet"
-            className="w-8 h-8 rounded-md group-hover:opacity-90 transition-opacity"
-          />
-          <span className="font-sans font-semibold tracking-tight text-lg text-[#F4EEFF]">RoleJet</span>
+  return (
+    <nav className="w-full border-b border-[#A6B1E1]/30 bg-gradient-to-r from-[#424874] via-[#383C66] to-[#2B2E4E] backdrop-blur-xl fixed top-0 z-[100] text-[#F4EEFF] shadow-lg shadow-[#2B2E4E]/30 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between w-full">
+
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-3 group py-1">
+          <div className="relative flex items-center justify-center">
+            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#A6B1E1]/40 to-[#DCD6F7]/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src="/rolejet.svg"
+              alt="RoleJet"
+              className="relative w-8 h-8 rounded-lg group-hover:scale-105 transition-transform duration-300 ring-1 ring-[#A6B1E1]/30 group-hover:ring-[#A6B1E1]/60"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-sans font-bold tracking-tight text-lg text-[#F4EEFF] group-hover:text-white transition-colors">
+              RoleJet
+            </span>
+          </div>
         </Link>
 
-        {/* Center nav links */}
-        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          <Link href="/resumebuilder" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
-            Resume Builder
-          </Link>
-          <Link href="/applications" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
-            Job Application Tracker
-          </Link>
-          <Link href="/extension" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
-            Extension
-          </Link>
-          <Link href="/blog" className="text-sm font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors">
-            Blog
-          </Link>
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-1.5 lg:gap-2 absolute left-1/2 -translate-x-1/2 bg-[#2B2E4E]/40 p-1.5 rounded-full border border-[#A6B1E1]/20 backdrop-blur-md">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-200 ${
+                  isActive
+                    ? 'bg-[#A6B1E1]/25 text-[#F4EEFF] font-semibold border border-[#A6B1E1]/40 shadow-sm shadow-[#A6B1E1]/20'
+                    : 'text-[#DCD6F7] hover:text-[#F4EEFF] hover:bg-[#A6B1E1]/10'
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#A6B1E1] animate-pulse" />
+                )}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Right side */}
-        <div className="flex items-center gap-5">
+        {/* Right Action Section */}
+        <div className="flex items-center gap-4">
           {user ? (
             <div className="relative" ref={dropdownRef}>
-              {/* Avatar trigger */}
+              {/* Profile Trigger Button */}
               <button
                 onClick={() => setOpen(prev => !prev)}
-                className="flex items-center gap-1.5 rounded-full focus:outline-none group"
+                className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-full border border-[#A6B1E1]/30 bg-[#383C66]/50 hover:bg-[#383C66] focus:outline-none transition-all duration-200 group shadow-sm hover:border-[#A6B1E1]/60"
                 aria-label="Open profile menu"
               >
                 {user.avatar_url ? (
@@ -67,94 +98,93 @@ export default function Navbar() {
                     src={user.avatar_url}
                     alt={user.full_name ?? user.email}
                     referrerPolicy="no-referrer"
-                    className="w-8 h-8 rounded-full object-cover ring-2 ring-border group-hover:ring-primary/40 transition-all"
+                    className="w-7 h-7 rounded-full object-cover ring-1 ring-[#A6B1E1]/50 group-hover:ring-[#F4EEFF] transition-all"
                   />
                 ) : (
-                  <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xs font-semibold text-primary font-sans">
+                  <div className="w-7 h-7 rounded-full bg-[#A6B1E1]/30 border border-[#A6B1E1]/50 flex items-center justify-center text-xs font-bold text-[#F4EEFF] font-sans">
                     {(user.full_name ?? user.email)[0].toUpperCase()}
                   </div>
                 )}
-                <svg
-                  className="w-4 h-4 text-text-tertiary transition-colors duration-200 group-hover:text-text-secondary"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                >
-                  {open ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
-                  )}
-                </svg>
+                <span className="hidden lg:inline-block text-xs font-medium text-[#F4EEFF] max-w-[100px] truncate">
+                  {user.full_name?.split(' ')[0] ?? 'Account'}
+                </span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-[#A6B1E1] transition-transform duration-200 group-hover:text-[#F4EEFF] ${
+                    open ? 'rotate-180' : ''
+                  }`}
+                />
               </button>
 
-              {/* Dropdown */}
+              {/* Enhanced Dropdown Menu */}
               {open && (
-                <div className="absolute right-0 top-12 w-64 rounded-2xl border border-border bg-background/95 backdrop-blur-xl shadow-2xl overflow-hidden z-50">
+                <div className="absolute right-0 top-12 w-68 rounded-2xl border border-[#A6B1E1]/40 bg-[#2B2E4E]/95 backdrop-blur-2xl shadow-2xl shadow-black/40 overflow-hidden z-50 animate-in fade-in-50 zoom-in-95 duration-150 text-[#F4EEFF]">
 
-                  {/* User info */}
-                  <div className="px-4 py-4 border-b border-border">
+                  {/* User Profile Header */}
+                  <div className="p-4 border-b border-[#A6B1E1]/20 bg-[#383C66]/40">
                     <div className="flex items-center gap-3">
                       {user.avatar_url ? (
                         <img
                           src={user.avatar_url}
                           alt={user.full_name ?? user.email}
                           referrerPolicy="no-referrer"
-                          className="w-10 h-10 rounded-full object-cover ring-2 ring-border"
+                          className="w-10 h-10 rounded-full object-cover ring-2 ring-[#A6B1E1]/40"
                         />
                       ) : (
-                        <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-sm font-semibold text-primary">
+                        <div className="w-10 h-10 rounded-full bg-[#A6B1E1]/25 border border-[#A6B1E1]/40 flex items-center justify-center text-sm font-bold text-[#F4EEFF]">
                           {(user.full_name ?? user.email)[0].toUpperCase()}
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-text-primary font-sans truncate">{user.full_name ?? 'User'}</p>
-                        <p className="text-xs text-text-tertiary font-sans truncate">{user.email}</p>
+                        <div className="flex items-center gap-1.5">
+                          <p className="text-sm font-bold text-[#F4EEFF] font-sans truncate">
+                            {user.full_name ?? 'User'}
+                          </p>
+                          <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#A6B1E1]/20 text-[#DCD6F7] border border-[#A6B1E1]/30">
+                            PRO
+                          </span>
+                        </div>
+                        <p className="text-xs text-[#A6B1E1] font-sans truncate">{user.email}</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* RJ Credits */}
-                  <div className="px-4 py-3 border-b border-border">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-sans text-text-secondary">RJ</span>
-                        <span className="text-xs font-sans text-text-secondary">Credits</span>
+                  {/* RJ Credits Section */}
+                  <div className="px-4 py-3.5 border-b border-[#A6B1E1]/20 bg-[#424874]/20">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#A6B1E1]" />
+                        <span className="text-xs font-semibold font-sans text-[#F4EEFF]">RJ Credits</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <span className="text-xs font-sans text-text-secondary">0</span>
-                        <span className="text-xs font-sans text-text-secondary">credits</span>
-                      </div>
+                      <span className="text-xs font-medium font-sans text-[#DCD6F7] px-2 py-0.5 rounded-md bg-[#A6B1E1]/15 border border-[#A6B1E1]/20">
+                        0 / 10
+                      </span>
                     </div>
-                    <div className="mt-2 h-1.5 rounded-full bg-surface overflow-hidden">
-                      <div className="h-full w-0 bg-primary rounded-full transition-all duration-500" />
+                    <div className="h-1.5 rounded-full bg-[#383C66] overflow-hidden border border-[#A6B1E1]/20">
+                      <div className="h-full w-0 bg-gradient-to-r from-[#A6B1E1] to-[#F4EEFF] rounded-full transition-all duration-500" />
                     </div>
-                    <p className="mt-1.5 text-[10px] text-text-tertiary font-sans">Credits reset monthly</p>
+                    <p className="mt-1.5 text-[10px] text-[#A6B1E1] font-sans">Credits auto-refresh monthly</p>
                   </div>
 
-                  {/* Menu items */}
-                  <div className="p-2">
+                  {/* Menu Items */}
+                  <div className="p-2 space-y-1">
                     <Link
                       href="/settings"
                       onClick={() => setOpen(false)}
-                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-sans text-text-secondary hover:text-text-primary hover:bg-surface transition-colors"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-sans font-medium text-[#DCD6F7] hover:text-[#F4EEFF] hover:bg-[#A6B1E1]/15 transition-all duration-150 group"
                     >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                      </svg>
-                      Settings
+                      <Settings className="w-4 h-4 text-[#A6B1E1] group-hover:text-[#F4EEFF] transition-colors" />
+                      <span>Settings</span>
                     </Link>
                   </div>
 
-                  {/* Sign Out */}
-                  <div className="p-2 pt-0">
+                  {/* Sign Out Action */}
+                  <div className="p-2 pt-0 border-t border-[#A6B1E1]/15">
                     <button
                       onClick={() => { signOut(); setOpen(false); }}
-                      className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-sans text-danger hover:bg-danger/10 transition-colors"
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-sans font-medium text-red-300 hover:text-red-100 hover:bg-red-500/20 transition-all duration-150 group mt-1"
                     >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-                      </svg>
-                      Sign Out
+                      <LogOut className="w-4 h-4 text-red-400 group-hover:text-red-200 transition-colors" />
+                      <span>Sign Out</span>
                     </button>
                   </div>
 
@@ -162,49 +192,47 @@ export default function Navbar() {
               )}
             </div>
           ) : !isLoading ? (
-            <div className="hidden sm:flex items-center gap-1 sm:gap-2">
+            <div className="hidden sm:flex items-center gap-2">
               <GoogleSignInButton />
             </div>
           ) : null}
 
-          {/* Mobile menu toggle */}
+          {/* Mobile Menu Toggle Button */}
           <button
-            className="md:hidden flex items-center justify-center p-2 rounded-md text-[#DCD6F7] hover:text-[#F4EEFF] transition-colors"
+            className="md:hidden flex items-center justify-center p-2 rounded-xl border border-[#A6B1E1]/30 bg-[#383C66]/40 text-[#DCD6F7] hover:text-[#F4EEFF] hover:bg-[#383C66] transition-all"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
           >
-            <span className="sr-only">Open main menu</span>
-            {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            )}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-gradient-to-b from-[#424874] via-[#383C66] to-[#2B2E4E] border-b border-[#A6B1E1]/40 shadow-xl z-50 animate-in slide-in-from-top-2 duration-200 text-[#F4EEFF]">
-          <div className="flex flex-col px-6 py-6 space-y-6">
-            <Link href="/resumebuilder" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
-              Resume Builder
-            </Link>
-            <Link href="/applications" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
-              Job Application Tracker
-            </Link>
-            <Link href="/extension" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
-              Extension
-            </Link>
-            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-lg font-sans font-medium text-[#F4EEFF]">
-              Blog
-            </Link>
+        <div className="md:hidden border-b border-[#A6B1E1]/30 bg-gradient-to-b from-[#383C66] via-[#2B2E4E] to-[#1F223B] backdrop-blur-2xl shadow-2xl z-50 animate-in slide-in-from-top-3 duration-200 text-[#F4EEFF]">
+          <div className="flex flex-col px-5 py-6 space-y-2">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium transition-all ${
+                    isActive
+                      ? 'bg-[#A6B1E1]/25 text-[#F4EEFF] font-semibold border border-[#A6B1E1]/40'
+                      : 'text-[#DCD6F7] hover:text-[#F4EEFF] hover:bg-[#A6B1E1]/10'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                </Link>
+              );
+            })}
+
             {!user && !isLoading && (
-              <div className="pt-2 border-t border-border">
+              <div className="pt-4 mt-2 border-t border-[#A6B1E1]/20 flex justify-center">
                 <GoogleSignInButton />
               </div>
             )}
@@ -214,3 +242,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

@@ -22,30 +22,27 @@ export default function StatsCard({ label, value, trend, trendType = 'neutral', 
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="group flex flex-col h-full bg-surface border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 backdrop-blur-sm shadow-lg hover:shadow-primary/5"
+      className="group relative flex flex-col justify-between h-full bg-surface border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
     >
-      <div className={`p-6 pb-4 flex items-start ${Icon ? 'justify-between' : 'justify-end'}`}>
-        {Icon && (
-          <div className={`w-10 h-10 rounded-xl bg-${color}/10 flex items-center justify-center ring-1 ring-${color}/20 group-hover:scale-110 transition-transform duration-500`}>
-            <Icon className={`w-5 h-5 text-${color}`} />
-          </div>
-        )}
+      <div className="flex items-center justify-between gap-2 mb-3">
+        <h3 className="text-base font-sans font-bold text-[#1a1a1a] tracking-tight truncate">{label}</h3>
         {trend && (
-          <span className={`text-[10px] font-sans px-2 py-0.5 rounded-full border ${trendColors[trendType]} tracking-tight uppercase`}>
+          <span className={`text-[10px] font-sans px-2.5 py-0.5 rounded-full border ${trendColors[trendType]} tracking-tight uppercase shrink-0 font-medium`}>
             {trend}
           </span>
         )}
       </div>
 
-      <div className="px-6 pb-6 space-y-1">
-        <h3 className="text-sm font-sans font-medium text-text-tertiary uppercase tracking-wider">{label}</h3>
-        <p className="text-3xl font-sans font-bold text-text-primary tracking-tighter">
+      <div className="flex items-baseline justify-between gap-2">
+        <p className="text-3xl sm:text-4xl font-sans font-bold text-text-primary tracking-tighter">
           {value}
         </p>
+        {Icon && (
+          <div className={`w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 shrink-0`}>
+            <Icon className={`w-4 h-4 text-primary`} />
+          </div>
+        )}
       </div>
-
-      {/* Decorative gradient light */}
-      <div className={`absolute top-0 right-0 w-24 h-24 bg-${color}/5 blur-3xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity`} />
     </motion.div>
   );
 }

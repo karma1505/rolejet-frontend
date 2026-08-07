@@ -21,12 +21,12 @@ export default function AnalyserForm({ onAnalyze }: { onAnalyze?: () => void }) 
 
       {/* Resume Upload & Submit */}
       <div className="flex flex-col h-full">
-        <label className="font-sans text-xs uppercase tracking-wider text-text-tertiary mb-3">Your Resume (PDF)</label>
+        <label className="font-sans text-xs uppercase tracking-wider text-text-tertiary mb-3">Your Resume (PDF or Word)</label>
 
         <label className={`flex-1 min-h-[250px] w-full bg-surface border-2 border-dashed rounded-md flex flex-col items-center justify-center p-6 cursor-pointer group transition-all duration-200 ${file ? 'border-primary/50 bg-primary/5' : 'border-border hover:border-text-secondary'}`}>
           <input
             type="file"
-            accept="application/pdf"
+            accept=".pdf,.docx,.doc,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword"
             className="hidden"
             onChange={(e) => setFile(e.target.files?.[0] || null)}
           />
@@ -41,7 +41,7 @@ export default function AnalyserForm({ onAnalyze }: { onAnalyze?: () => void }) 
             <>
               <UploadCloud className="w-12 h-12 text-text-tertiary group-hover:text-text-primary transition-colors mb-4" />
               <p className="text-sm font-medium text-text-primary">Click to upload or drag & drop</p>
-              <p className="text-xs text-text-secondary mt-2">PDF formats only (max 5MB)</p>
+              <p className="text-xs text-text-secondary mt-2">PDF or Word (.pdf, .docx) formats (max 5MB)</p>
             </>
           )}
         </label>

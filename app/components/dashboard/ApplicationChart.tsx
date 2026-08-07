@@ -16,9 +16,9 @@ export default function ApplicationChart({ data, title }: ApplicationChartProps)
   const total = data.reduce((acc, curr) => acc + curr.value, 0);
 
   return (
-    <div className="bg-surface border border-border rounded-2xl p-8 backdrop-blur-md h-full flex flex-col">
-      <div className="flex items-center justify-between mb-8">
-        <h3 className="text-xs font-sans text-text-tertiary uppercase tracking-[0.2em]">{title}</h3>
+    <div className="bg-surface border border-border rounded-2xl p-5 backdrop-blur-md h-full flex flex-col justify-between">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-base md:text-lg font-sans font-bold text-[#1a1a1a] tracking-tight">{title}</h3>
       </div>
 
       <div className="flex-1 flex flex-col justify-center space-y-6">
@@ -49,13 +49,6 @@ export default function ApplicationChart({ data, title }: ApplicationChartProps)
               </div>
             </div>
           ))}
-        </div>
-      </div>
-      
-      <div className="mt-8 pt-6 border-t border-border/50">
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] font-sans text-text-tertiary uppercase">Pipeline Efficiency</span>
-          <span className="text-xs font-bold text-success">Optimal</span>
         </div>
       </div>
     </div>
